@@ -1,4 +1,4 @@
-const URL = 'http://localhost:8080/api/cocktails';
+const URL = 'http://localhost:8080/cocktails';
 
 export async function fetchCocktailByName(name) {
     const url = `${URL}?name=${encodeURIComponent(name)}`;
