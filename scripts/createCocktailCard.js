@@ -1,23 +1,32 @@
-import {fetchCocktailByName} from "fetch.js";
+import {fetchCocktailByName} from "./fetch.js";
 
 const tagColorsMap = {
-    sweet: 'pink',
-    sour: 'green',
-    fruity: 'yellow'
+    Sweet: 'sweet',
+    Classic: 'classic',
+    Citrus: 'citrus',
+    Strong: 'strong',
+    Fruity: 'yellow',
+    Refreshing: 'fresh',
+    Bitter: 'sour',
+    Creamy: 'creamy',
+    Spicy: 'spicy',
+    Sour: 'green'
 };
 
-async function createCocktailCard(name) {
+export async function createCocktailCard(name) {
     const cocktail = await fetchCocktailByName(name);
+
+    console.log('cocktail:', cocktail);
 
     const tags = [];
     for (const tag of cocktail.tags) {
-        const color = tagColorsMap[tag.name.toLowerCase()]
-        tags.push({ name: tag.name, color });
+        const color = tagColorsMap[tag.name]
+        tags.push({ name: tag.name.toLowerCase(), color });
     }
 
     const ingredients = [];
     for (const item of cocktail.ingredients) {
-        const name = item.ingredient.name;
+        const name = item.ingredientName;
         const amount = item.amount;
         ingredients.push(`${name} — ${amount}`);
     }
@@ -26,11 +35,10 @@ async function createCocktailCard(name) {
     card.className = 'cocktail-card';
 
     const imageSrc = cocktail.image;
-    const strength = cocktail.Strength;
-    const volume = cocktail.Volume
+    const strength = cocktail.strength;
 
     card.innerHTML = `
-        <img src="${imageSrc}" alt="${cocktail.name}" />
+        <img src="${imageSrc}" alt="${cocktail.name}" class="cocktail-image"/>
         <div class="cocktail-card-info">
             <div class="cocktail-card-header">
                 <p class="cocktail-name">${cocktail.name}</p>

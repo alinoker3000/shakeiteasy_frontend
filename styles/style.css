@@ -17,9 +17,14 @@ a, ul, p, img {
     font-size: 20px;
     color: white;
     --red: rgba(120, 0, 0, 1);
+    --light-red: rgba(193, 18, 31, 1);
     --pink: rgba(235, 88, 162, 1);
-    --green: rgba(108, 129, 43, 1);
+    --orange: rgba(255, 119, 0, 1);
+    --black: rgba(0, 0, 0, 1);
     --yellow: rgba(255, 187, 0, 1);
+    --fresh: rgba(56, 131, 106, 1);
+    --beige: rgba(206, 181, 135, 1);
+    --green: rgba(108, 129, 43, 1);
 }
 
 body {
@@ -82,10 +87,16 @@ main {
     display: flex;
     flex-direction: row;
     min-width: 600px;
+    min-height: 200px;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
     gap: 20px;
+}
+
+.cocktail-image {
+    min-height: 180px;
+    min-width: 180px;
 }
 
 .cocktail-card-info {
@@ -165,14 +176,40 @@ main {
     flex: 1;
 }
 
-.pink {
+.sweet {
     background-color: var(--pink);
 }
 
-.green {
+.classic {
+    background-color: var(--red);
+}
+
+.citrus {
+    background-color: var(--orange);
+}
+
+.strong {
+    background-color: var(--black);
+}
+
+.fruity {
+    background-color: var(--yellow);
+}
+
+.fresh {
+    background-color: var(--fresh);
+}
+
+.creamy {
+    background-color: var(--beige);
+}
+
+.spicy {
+    background-color: var(--light-red);
+}
+
+.sour {
     background-color: var(--green);
 }
 
-.yellow {
-    background-color: var(--yellow);
-}
+
